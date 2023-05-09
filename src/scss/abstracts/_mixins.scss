@@ -1,0 +1,57 @@
+
+/** Media Queries **/
+$breakpoints: (
+  mobile: 575.99px,
+  tablet: 767.99px,
+  laptop: 1023.99px,
+  desktop: 1399.99px
+);
+
+@mixin responsive($key) {
+  @if map-has-key($breakpoints, $key) {
+    @media only screen and (min-width: map-get($breakpoints, $key)) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: $key) {
+      @content;
+    }
+  }
+}
+
+// hover
+@mixin hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+// pseudo
+@mixin pseudo($w, $h) {
+  content: '';
+  position: absolute;
+  width: $w;
+  height: $h;
+  @content;
+}
+
+// function para images
+$p: '../assets/images/';
+@function image($i) {
+  @return url(($p + $i));
+}
+
+// flex
+@mixin flex($direction, $corte, $just, $align) {
+  display: flex;
+  flex-flow: $direction $corte;
+  justify-content: $just;
+  align-items: $align;
+}
+
+// grid
+@mixin grid($columns, $space, $fr) {
+  display: grid;
+  gap: $space;
+  grid-template-columns: repeat($columns, $fr);
+}

@@ -1,0 +1,12 @@
+include ../config/config
+
+div#app
+  each val, key in xd
+    a(href=val.href target="_blank")
+      img(src=val.src, alt=val.alt, class=val.class).logo
+  h1 #{ name } in #{ titulo }
+  .card
+    button(type="button")#counter
+  p.read-the-docs #{ parrafo }
+.box
+  button(type="button" data-v="true")#btn-theme.btn-prueba Theme Dark

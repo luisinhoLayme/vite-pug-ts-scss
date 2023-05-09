@@ -1,0 +1,17 @@
+@use 'sass:color';
+@use '../abstracts/variables' as *;
+
+:root, [data-theme="default"] {
+  @each $name, $value in $colors {
+    --#{$name}-light: #{$value};
+    // --#{$name}-dark: #{color.adjust($value, $lightness: -55%)};
+  }
+}
+
+@supports(--css: variables) {
+  [data-theme="dark"] {
+    --negro-light: #f9f9f9;
+    --blanco-light: #242424;
+    --button-light: #242424;
+  }
+}
