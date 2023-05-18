@@ -1,6 +1,7 @@
-import { setupCounter } from './helpers/counter.ts'
-import { handleTheme } from './helpers/theme.ts'
-
+import {
+  handleTheme,
+  setupCounter
+} from './helpers'
 
 import 'gardevoir' // reset
 import './scss/style.scss'
